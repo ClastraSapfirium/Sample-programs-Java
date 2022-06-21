@@ -14,4 +14,4 @@ public class hw_1 {
         }
         return Triangle(num - 1) + num;
     }
-} 
+}
