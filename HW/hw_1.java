@@ -1,16 +1,17 @@
 package HW;
-
-public class hw_1{
+import java.util.Scanner;
+public class hw_1 {
     public static void main(String[] args) {
-       int i = 0;
-       int j =0;
-       int count =0;
-       for (i=1;i<=10;i++){
-           count = 0;  
-           for(j=1;j<=i;j++){
-               count = count + j;
-           }
-               System.out.println(count);
-           }
-       }
-   }
+        Scanner Scanner = new Scanner(System.in);
+        System.out.print("Введите числовое значение для которого нужно посчитать треугольное число: ");
+        int a = Scanner.nextInt();
+        Scanner.close();
+        System.out.println("Треугольное число = " + Triangle(a) + "\n");
+    }
+    public static int Triangle(int num) {
+        if (num == 1) {
+            return 1;
+        }
+        return Triangle(num - 1) + num;
+    }
+} 
