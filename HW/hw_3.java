@@ -9,15 +9,15 @@ public class hw_3 {
     public static void main(String[] args) {
         List<List<Integer>> Log = new ArrayList<>();
         List<List<Integer>> Prom_List = new ArrayList<>();
-        int n = Razmer_Doski(); 
-        Log = Perviy_Chod(n);
+        int n = Desk_size(); 
+        Log = First_code(n);
         while(Log.size()<n*n){
-            Prom_List = Poisk_Choda(Log.get(Log.size()-1), n, Log);
+            Prom_List = Serch_code(Log.get(Log.size()-1), n, Log);
             int min; int index=0;
-            min = Poisk_Choda(Prom_List.get(0),n,Log).size();
+            min = Serch_code(Prom_List.get(0),n,Log).size();
             for (List<Integer> item : Prom_List){
-                if(Poisk_Choda(item,n,Log).size()<min) {
-                    min = Poisk_Choda(item,n,Log).size();
+                if(Serch_code(item,n,Log).size()<min) {
+                    min = Serch_code(item,n,Log).size();
                     index = Prom_List.indexOf(item);
                 }
             }
@@ -30,7 +30,7 @@ public class hw_3 {
         }
     }
     
-    public static List<List<Integer>> Poisk_Choda(List<Integer> list, int m, List<List<Integer>> big_list){
+    public static List<List<Integer>> Serch_code(List<Integer> list, int m, List<List<Integer>> big_list){
         List<List<Integer>> res1 = new ArrayList<>();
         List<List<Integer>> res = new ArrayList<>();
         
@@ -89,7 +89,7 @@ public class hw_3 {
         } 
         return res;
     }
-    public static List<List<Integer>> Perviy_Chod(int m){
+    public static List<List<Integer>> First_code(int m){
         List<List<Integer>> Log = new ArrayList<>();
         List<Integer> Koord = new ArrayList<>();
         Random k = new Random();
@@ -123,7 +123,7 @@ public class hw_3 {
     public static int Nomer_Polya(List<Integer> list, int m){   
         return list.get(0)*m+list.get(1)+1;
     }
-    public static int Razmer_Doski(){     
+    public static int Desk_size(){     
         int nm = Proverka_Chisla();
         while(nm<5 || nm>11){
             nm=Proverka_Chisla();
