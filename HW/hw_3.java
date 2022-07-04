@@ -26,7 +26,7 @@ public class hw_3 {
         Narisovat_Dosku(n);
         System.out.println();
         for (List<Integer> item : Log){
-            System.out.printf("%d -> ",Nomer_Polya(item, n));
+            System.out.printf("%d -> ",Feeld_Number(item, n));
         }
     }
     
@@ -112,7 +112,7 @@ public class hw_3 {
                 List<Integer> temp = new ArrayList<>();
                 temp.add(i);
                 temp.add(j);
-                System.out.printf("| %-3d",Nomer_Polya(temp, m));
+                System.out.printf("| %-3d",Feeld_Number(temp, m));
             }
             System.out.print("|");
             System.out.println();
@@ -120,17 +120,17 @@ public class hw_3 {
             System.out.println();
         }
     }
-    public static int Nomer_Polya(List<Integer> list, int m){   
+    public static int Feeld_Number(List<Integer> list, int m){   
         return list.get(0)*m+list.get(1)+1;
     }
     public static int Desk_size(){     
-        int nm = Proverka_Chisla();
+        int nm = Check_number();
         while(nm<5 || nm>11){
-            nm=Proverka_Chisla();
+            nm=Check_number();
         }
         return nm;
     }
-    public static int Proverka_Chisla(){
+    public static int Check_number(){
         Scanner sc = new Scanner(System.in);
         System.out.printf("Введите сторону шахматной доски (целые числа не менее 5 и не более 11): \n");
         String s = sc.nextLine();
