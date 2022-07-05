@@ -7,26 +7,26 @@ import java.util.Scanner;
 
 public class hw_3 {
     public static void main(String[] args) {
-        List<List<Integer>> Log = new ArrayList<>();
+        List<List<Integer>> prog = new ArrayList<>();
         List<List<Integer>> Prom_List = new ArrayList<>();
         int n = Desk_size(); 
-        Log = First_code(n);
-        while(Log.size()<n*n){
-            Prom_List = Serch_code(Log.get(Log.size()-1), n, Log);
+        prog = First_code(n);
+        while(prog.size()<n*n){
+            Prom_List = Serch_code(prog.get(prog.size()-1), n, prog);
             int min; int index=0;
-            min = Serch_code(Prom_List.get(0),n,Log).size();
+            min = Serch_code(Prom_List.get(0),n,prog).size();
             for (List<Integer> item : Prom_List){
-                if(Serch_code(item,n,Log).size()<min) {
-                    min = Serch_code(item,n,Log).size();
+                if(Serch_code(item,n,prog).size()<min) {
+                    min = Serch_code(item,n,prog).size();
                     index = Prom_List.indexOf(item);
                 }
             }
-            Log.add(Prom_List.get(index));
+            prog.add(Prom_List.get(index));
         }
-        Narisovat_Dosku(n);
+        Desk(n);
         System.out.println();
-        for (List<Integer> item : Log){
-            System.out.printf("%d -> ",Feeld_Number(item, n));
+        for (List<Integer> item : prog){
+            System.out.printf("%d ---> ",Feeld_Number(item, n));
         }
     }
     
@@ -90,15 +90,15 @@ public class hw_3 {
         return res;
     }
     public static List<List<Integer>> First_code(int m){
-        List<List<Integer>> Log = new ArrayList<>();
-        List<Integer> Koord = new ArrayList<>();
+        List<List<Integer>> prog = new ArrayList<>();
+        List<Integer> coord = new ArrayList<>();
         Random k = new Random();
-        Koord.add(k.nextInt(m));
-        Koord.add(k.nextInt(m));
-        Log.add(Koord);
-        return Log;
+        coord.add(k.nextInt(m));
+        coord.add(k.nextInt(m));
+        prog.add(coord);
+        return prog;
     }
-    public static void Narisovat_Dosku(int m){
+    public static void Desk(int m){
         int [][] arr = new int[m][m];
         String k = "+----+";
         for (int index = 0; index < m-1; index++) {
@@ -132,7 +132,7 @@ public class hw_3 {
     }
     public static int Check_number(){
         Scanner sc = new Scanner(System.in);
-        System.out.printf("Введите сторону шахматной доски (целые числа не менее 5 и не более 11): \n");
+        System.out.printf("Введите размер доски. (Числа не менее 5 и не более 11): \n");
         String s = sc.nextLine();
         int nmb;
         try{
